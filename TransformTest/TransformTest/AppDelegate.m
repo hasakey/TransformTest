@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "AnimationsListViewNavigationControllerViewController.h"
+#import "AnimationsListController.h"
 
 @interface AppDelegate ()
 
@@ -16,8 +18,21 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    AnimationsListController               *viewController       = [AnimationsListController new];
+//    AnimationsListViewNavigationControllerViewController *navigationController = [[AnimationsListViewNavigationControllerViewController alloc] initWithRootViewController:viewController
+//                                                                                                                       setNavigationBarHidden:YES];
+    
+    AnimationsListViewNavigationControllerViewController *navigationController =  [[AnimationsListViewNavigationControllerViewController alloc] initWithRootViewController:viewController
+                                                                                                                                      setNavigationBarHidden:YES];;
+    
+    self.window.rootViewController = navigationController;
+    self.window.backgroundColor    = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
     return YES;
+
 }
 
 
